@@ -2,6 +2,12 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:latest
+        - image: circleci/python:latest
     steps:
-      - run: pip install unittest
+        - checkout
+        - run: 
+            name: Install unittest
+            command: pip install unittest
+        - run:
+            name: Run tests
+            command: python test.py 
